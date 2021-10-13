@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- main css file  -->
+  <link rel="stylesheet" href="css/style.css">
+  <!-- google fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Oswald:400,600,700|Ranga:400,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!--font awosome-->
+  <link rel="stylesheet" href="CSS/all.min.css">
+  <!--normalize css-->
+  <link rel="stylesheet" href="CSS/normalize.css">
+  <!--icon link-->
+  <link rel="icon" type="image/svg" sizes="30x30" href="images/icon.png">
+  <!-- page title  -->
+  <title>Weather Journal</title>
+</head>
+ <body>
+  <nav class="nav__bar container">
+     <div class="title">
+       <h1>Weather Journal App</h1>
+       <img src="images/icon.png" alt="Weather Journal App">
+     </div>
+  </nav>
+  <div class="home">
+    <img src="images/cloud.svg" alt="a">
+    <img src="images/cloud.svg" alt="a">
+    <img src="images/cloud.svg" alt="a">
+    <img src="images/cloud.svg" alt="a">
+    <a href="#app">Check Weather</a>
+  </div>
+  <div id = "app">
+    <div class ="holder zip">
+      <article id="no__zip" class="alarm">Please Enter the zip code</article>
+      <article id="wrong__zip" class="alarm">Wrong zip code !!</article>
+      <input type="text" id="zip" placeholder="enter zip code here" required>
+    </div>
+    <select id="country" class="holder" name="country">
+      <option value="us">USA</option>
+      <option value="au">Australia</option>
+      <option value="ca">Canada</option>
+      <option value="de">Germany</option>
+    </select>
+    <div class ="holder feel">
+      <textarea class= "myInput" id="feelings" placeholder="Enter your feelings here"></textarea>
+    </div>
+    <button id="generate" type="submit"> Generate </button>
+    <div class ="entry">
+      <div class = "title">Most Recent Entry</div>
+      <div id = "entryHolder">
+        <div id="temp"></div>
+        <div id = "date"></div> 
+        <div id="city__name"></div>
+        <div id = "content"></div>
+      </div>
+    </div>
+  </div>
+<script src="js/app.js" type="text/javascript"></script>
+
+</body>
+</html>
