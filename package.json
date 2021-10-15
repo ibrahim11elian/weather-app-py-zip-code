@@ -1,0 +1,31 @@
+{
+  "name": "weather-journal-app",
+  "version": "1.0.0",
+  "description": "(weather-journal-app)",
+  "main": "server.js",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "t",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ibrahim11elian/weather-journal-app.git"
+  },
+  "keywords": [
+    "node",
+    "weather",
+    "exoress",
+    "async.dynamic"
+  ],
+  "author": "ibrahim ahmed",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ibrahim11elian/weather-journal-app/issues"
+  },
+  "homepage": "https://github.com/ibrahim11elian/weather-journal-app#readme"
+}
