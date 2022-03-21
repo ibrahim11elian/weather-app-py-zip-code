@@ -23,7 +23,7 @@ const port = 5000; // port number
 app.listen(port, listening);
 
 function listening() {
-    console.log(`server is runing on localhost: ${port}`);
+    console.log(`server is runing on localhost:${port}`);
 }
 
 //GET route that returns the projectData object
