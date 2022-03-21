@@ -20,7 +20,7 @@ app.use(express.static('website'));
 // Setup Server
 //const port = 5000; // port number
 //listen to 
-app.listen();
+app.listen(process.env.PORT || 5000);
 
 // function listening() {
 //     console.log(`server is runing on localhost:${port}`);
