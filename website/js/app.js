@@ -46,6 +46,7 @@ generateButtom.addEventListener('click', generate);
 function generate() {
     const zipCode = document.getElementById('zip').value;
     if (zipCode === "") {
+        document.getElementById('wrong__zip').style.cssText = 'display : none;';
         document.getElementById('no__zip').style.cssText = 'display: block;';
         return;
     }
