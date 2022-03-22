@@ -14,10 +14,6 @@ const getWeatherData = async (baseUrl, zipCode, country, apikey) => {
     const res = await fetch(baseUrl + zipCode + `,${country}` + apikey);
     try {
         const weatherData = res.json();
-        // if (weatherData.cod === '404') {
-        //     // document.getElementById('wrong_zip').style.cssText = 'display : block;';
-        //     return;
-        // }
         return weatherData;
 
     } catch (error) {
@@ -46,7 +42,6 @@ const postData = async (url = '', data = {}) => {
 // Event listener to add function to existing HTML DOM element
 const generateButtom = document.getElementById('generate');
 generateButtom.addEventListener('click', generate);
-
 /* Function called by event listener */
 function generate() {
     const zipCode = document.getElementById('zip').value;
@@ -58,19 +53,28 @@ function generate() {
     // console.log(zipCode);
     const feeling = document.getElementById('feelings').value;
     // console.log(feeling);
+
     getWeatherData(baseUrl, zipCode, country, key)
         .then(function (weatherData) {
-            postData('/add', { name: weatherData.name, temp: weatherData.main.temp, date: newDate, feelings: feeling });
-            updateUI();
+            if (weatherData.cod === 200) {
+                postData('/add', { name: weatherData.name, temp: weatherData.main.temp, date: newDate, feelings: feeling });
+                updateUI();
+            }
+            else {
+                document.getElementById('no__zip').style.cssText = 'display: none;';
+                document.getElementById('wrong__zip').style.cssText = 'display : block;';
+            }
         });
 }
 
 // update UI dynamically
 const updateUI = async () => {
     document.querySelector('.entry').style.cssText = 'display: block;';
-    const req = await fetch('/all');
+    document.getElementById('no__zip').style.cssText = 'display: none;';
+    document.getElementById('wrong__zip').style.cssText = 'display : none;';
+    const res = await fetch('/all');
     try {
-        const data = await req.json();
+        const data = await res.json();
         document.getElementById('date').innerHTML = `<i class="fas fa-calendar-day"></i> : ${data.date}`;
         document.getElementById('city__name').innerHTML = `${data.name}`;
         document.getElementById('temp').innerHTML = `<i class="fas fa-thermometer-half"></i> ${Math.round(Number(data.temp))} &deg;C`;

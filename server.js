@@ -28,14 +28,12 @@ app.listen(process.env.PORT || port);
 
 //GET route that returns the projectData object
 app.get('/all', getData);
-
 function getData(req, res) {
     res.send(projectData);
 }
 
 //POST route that adds incoming data to projectData
 app.post('/add', addData);
-
 function addData(req, res) {
     projectData = {
         name: req.body.name,

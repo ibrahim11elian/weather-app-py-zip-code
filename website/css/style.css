@@ -4,11 +4,6 @@
   box-sizing: border-box;
 }
 
-/*variables*/
-:root {
-  --transition: 0.3s;
-}
-
 html {
   scroll-behavior: smooth;
 }
@@ -21,6 +16,7 @@ body {
   );
   font-family: sans-serif;
   text-align: center;
+  height: 1510px;
 }
 .container {
   margin-right: auto;
@@ -259,41 +255,13 @@ button:hover {
 /*start footer*/
 .footer {
   height: 30px;
-  border-top: 1px solid black;
+  border-top: 1px solid rgba(0, 0, 0, 0.603);
   background-color: inherit;
-}
-.footer .copy-right {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  height: inherit;
-  justify-content: space-between;
   font-family: "Comfortaa", sans-serif;
+  align-items: center;
 }
-
-.footer .copy-right ul {
-  list-style: none;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  padding: 0;
-  width: 210px;
-}
-.footer .copy-right ul li {
-  width: calc(20% - 2px);
-  height: 40px;
-  padding-top: 8px;
-  transition: var(--transition);
-}
-.footer .copy-right ul li a i {
-  font-size: 20px;
-  color: rgba(0, 0, 0, 0.753);
-  transition: var(--transition);
-}
-
-.footer .copy-right ul li:hover a i {
-  color: #1a7cedc9;
+.footer p {
+  margin: 8px;
 }
 
 /* Reset style for HTML element on active to have no border*/
