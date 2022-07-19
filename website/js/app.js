@@ -51,9 +51,7 @@ function generate() {
         return;
     }
     const country = document.getElementById('country').value;
-    // console.log(zipCode);
     const feeling = document.getElementById('feelings').value;
-    // console.log(feeling);
 
     getWeatherData(baseUrl, zipCode, country, key)
         .then(function (weatherData) {
