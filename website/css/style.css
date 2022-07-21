@@ -58,6 +58,7 @@ body .home {
 body .home img {
   filter: opacity(20%);
   position: absolute;
+  z-index: -1;
 }
 body .home img:first-child {
   width: 200px;
