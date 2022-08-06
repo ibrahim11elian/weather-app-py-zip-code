@@ -42,8 +42,9 @@ const postData = async (url = '', data = {}) => {
 // Event listener to add function to existing HTML DOM element
 const generateButtom = document.getElementById('generate');
 generateButtom.addEventListener('click', generate);
+
 /* Function called by event listener */
-function generate() {
+async function generate() {
     const zipCode = document.getElementById('zip').value;
     if (zipCode === "") {
         document.getElementById('wrong__zip').style.cssText = 'display : none;';
@@ -53,17 +54,17 @@ function generate() {
     const country = document.getElementById('country').value;
     const feeling = document.getElementById('feelings').value;
 
-    getWeatherData(baseUrl, zipCode, country, key)
+    await getWeatherData(baseUrl, zipCode, country, key)
         .then(function (weatherData) {
-            if (weatherData.cod === 200) {
-                postData('/add', { name: weatherData.name, temp: weatherData.main.temp, date: newDate, feelings: feeling });
-                updateUI();
-            }
-            else {
-                document.getElementById('no__zip').style.cssText = 'display: none;';
-                document.getElementById('wrong__zip').style.cssText = 'display : block;';
-            }
+            postData('/add', { name: weatherData.name, temp: weatherData.main.temp, date: newDate, feelings: feeling });
+            updateUI();
+        }).catch((e) => {
+            console.log(e);
+            document.getElementById('no__zip').style.cssText = 'display: none;';
+            document.getElementById('wrong__zip').style.cssText = 'display : block;';
         });
+
+
 }
 
 // update UI dynamically

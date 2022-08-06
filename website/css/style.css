@@ -6,6 +6,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 80px;
 }
 
 body {
@@ -14,27 +15,41 @@ body {
     rgba(0, 15, 155, 0.842),
     rgb(142, 214, 243)
   );
-  font-family: sans-serif;
   text-align: center;
-  height: 1510px;
+  height: fit-content;
+  padding: 0;
+  margin: 0;
 }
+
+/* framwork class for centering things */
+.centering {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+}
+
 .container {
-  margin-right: auto;
-  margin-left: auto;
+  margin: 0 auto;
   padding-left: 15px;
   padding-right: 15px;
 }
-body .nav__bar {
+
+.nav__bar {
   position: sticky;
   top: 0;
   z-index: 10;
 }
-body .nav__bar .title {
+.nav__bar .title {
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
-body .nav__bar .title h1 {
+.nav__bar .title h1 {
   padding-top: 15px;
   font-family: "Lobster", sans-serif;
   font-size: 40px;
@@ -42,11 +57,12 @@ body .nav__bar .title h1 {
   color: #1ab5edc9;
   text-shadow: 0 1px 5px rgba(34, 34, 34, 0.76);
 }
-body .nav__bar .title img {
+
+.nav__bar .title img {
   width: 80px;
 }
 
-body .home {
+.home {
   height: calc(100vh - 114px);
   background-image: url(../images/bg.svg);
   background-repeat: no-repeat;
@@ -55,57 +71,67 @@ body .home {
   overflow: hidden;
 }
 
-body .home img {
+.home img {
   filter: opacity(20%);
   position: absolute;
   z-index: -1;
 }
-body .home img:first-child {
+
+.home img:first-child {
   width: 200px;
-  animation-name: animation;
-  animation-duration: 29s;
-  animation-iteration-count: infinite;
+  animation: animation-left 35s ease infinite;
+  -webkit-animation: animation-left 35s ease infinite;
 }
-body .home img:nth-child(2) {
+
+.home img:nth-child(2) {
   width: 300px;
   top: 40px;
   right: -300px;
-  animation-name: animation;
-  animation-duration: 40s;
-  animation-delay: 1s;
-  animation-iteration-count: infinite;
-}
-body .home img:nth-child(3) {
-  width: 400px;
-  top: 100px;
-  right: -400px;
-  animation-name: animation;
-  animation-duration: 35s;
-  animation-delay: 2.5s;
-  animation-iteration-count: infinite;
+  animation: animation-right 40s ease 1.5s infinite;
+  -webkit-animation: animation-right 40s ease 1.5s infinite;
 }
 
-body .home img:nth-child(4) {
-  width: 190px;
-  top: 120px;
-  right: -190px;
-  animation-name: animation;
-  animation-duration: 35s;
-  animation-delay: 3s;
-  animation-iteration-count: infinite;
+.home img:nth-child(3) {
+  width: 400px;
+  top: 100px;
+  left: -100%;
+  animation: animation-left 35s ease 2.5s infinite;
+  -webkit-animation: animation-left 35s ease 2.5s infinite;
 }
-@keyframes animation {
+
+.home img:nth-child(4) {
+  width: 190px;
+  top: 50%;
+  right: -190px;
+  animation: animation-right 45s ease 2s infinite;
+  -webkit-animation: animation-right 45s ease 2s infinite;
+}
+
+@keyframes animation-right {
   0% {
-    right: -30%;
+    right: -50%;
   }
   50% {
-    right: 80%;
+    right: 100%;
   }
   100% {
-    right: -30%;
+    right: -50%;
   }
 }
-body .home a {
+
+@keyframes animation-left {
+  0% {
+    left: -50%;
+  }
+  50% {
+    left: 100%;
+  }
+  100% {
+    left: -50%;
+  }
+}
+
+.home a {
   top: 80%;
   right: 50%;
   text-decoration: none;
@@ -120,11 +146,11 @@ body .home a {
   font-size: 20px;
   font-family: "Comfortaa", sans-serif;
   border: 0.5px solid rgba(0, 0, 0, 0.726);
-  box-shadow: 0 0.5px 5px rgba(0, 0, 0, 0.637);
+  box-shadow: 0 0.5px 5px rgba(0, 0, 0, 0.384);
   transition: 0.3s;
 }
-body .home a:hover {
-  border: 1px solid rgba(0, 0, 0, 0.726);
+.home a:hover {
+  box-shadow: 0 0.5px 20px rgba(0, 0, 0, 0.384);
   background-color: #1994c0c9;
 }
 
@@ -134,59 +160,45 @@ body .home a:hover {
   align-items: center;
   gap: 20px;
   font-size: 20px;
-  height: 750px;
-  padding-top: 200px;
+  margin-top: 150px;
   font-family: "Comfortaa", sans-serif;
 }
 
 /*  Basic Styling To Override Default For Basic HTML Elements */
 .holder {
-  height: 60px;
+  height: 50px;
   min-width: 40%;
 }
+
 input {
   width: 100%;
-  height: 66%;
+  height: inherit;
   padding-left: 10px;
   background: #1ab5edc9;
   color: rgba(0, 0, 0, 0.829);
   font-size: 20px;
-  border: 2px solid rgba(0, 0, 0, 0.945);
+  border: 1px solid rgba(0, 0, 0, 0.945);
   border-radius: 5px;
 }
 
-.alarm {
+.error {
   color: rgba(255, 0, 0, 0.863);
   display: none;
+  padding-top: 30px;
 }
 
 select {
-  height: 40px;
   padding-left: 10px;
   background: #1ab5edc9;
   color: rgba(0, 0, 0, 0.829);
   font-size: 20px;
-  border: 2px solid rgba(0, 0, 0, 0.945);
+  border: 1px solid rgba(0, 0, 0, 0.945);
   border-radius: 5px;
-}
-
-textarea {
-  width: 100%;
-  height: 66%;
-  padding-top: 5px;
-  background: #1ab5edc9;
-  padding-left: 10px;
-  background: #1ab5edc9;
-  color: rgba(0, 0, 0, 0.829);
-  font-size: 20px;
-  border: 2px solid rgba(0, 0, 0, 0.945);
-  border-radius: 5px;
-  resize: none;
 }
 
 button {
   min-width: 40%;
-  height: 40px;
+  height: 50px;
   background: inherit;
   border: 0.5px solid rgba(0, 0, 0, 0.726);
   box-shadow: 0 0.5px 5px rgba(0, 0, 0, 0.637);
@@ -202,18 +214,22 @@ button:hover {
 .entry {
   background: rgba(189, 189, 189, 0.13);
   width: 50%;
-  height: 200px;
+  min-height: 200px;
   padding: 10px;
   border-radius: 5px;
   box-shadow: 0 1px 10px rgba(80, 80, 80, 0.486);
   transition: 0.3s;
   display: none;
   user-select: none;
+  position: relative;
 }
 #entryHolder {
   height: 100%;
-  position: relative;
+  position: absolute;
+  width: 100%;
+  top: 20px;
 }
+
 #temp {
   font-size: 60px;
   font-weight: 300;
@@ -253,14 +269,62 @@ button:hover {
   left: 2%;
 }
 
+/* start loading animation styling */
+.loading {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.loading span {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border: 1px solid rgb(160, 160, 250);
+  animation: loading-animation 1s ease-in-out infinite;
+  -webkit-animation: loading-animation 1s ease-in-out infinite;
+}
+
+.loading span:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.loading span:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.loading span:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+@keyframes loading-animation {
+  0% {
+    background-color: inherit;
+  }
+  50% {
+    background-color: #435fbe;
+  }
+  100% {
+    background-color: inherit;
+  }
+}
+
+/* end loading animation styling */
+
 /*start footer*/
 .footer {
   height: 30px;
   border-top: 1px solid rgba(0, 0, 0, 0.603);
   background-color: inherit;
   font-family: "Comfortaa", sans-serif;
-  align-items: center;
+  margin-top: 30px;
 }
+
 .footer p {
   margin: 8px;
 }

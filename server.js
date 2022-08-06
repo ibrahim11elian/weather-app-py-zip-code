@@ -20,11 +20,12 @@ app.use(express.static('website'));
 // Setup Server
 const port = 5000; // port number
 //listen to 
-app.listen(process.env.PORT || port);
+// app.listen(process.env.PORT || port);
 
-// function listening() {
-//     console.log(`server is runing on localhost:${port}`);
-// }
+app.listen(port, listening);
+function listening() {
+    console.log(`server is runing on localhost:${port}`);
+}
 
 //GET route that returns the projectData object
 app.get('/all', getData);
