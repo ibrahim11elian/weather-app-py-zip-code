@@ -34,12 +34,12 @@
     <img src="images/cloud.svg" alt="a">
     <img src="images/cloud.svg" alt="a">
     <img src="images/cloud.svg" alt="a">
-    <a href="#app">Check Weather</a>
+    <a class="centering" href="#app">Check Weather</a>
   </div>
   <div id="app">
     <div class="holder">
-      <article id="no__zip" class="error">Please Enter the zip code</article>
-      <article id="wrong__zip" class="error">Wrong zip code !!</article>
+      <span id="no__zip" class="error">Please Enter the zip code</span>
+      <span id="wrong__zip" class="error">Wrong zip code !!</span>
     </div>
     <div class="holder zip">
       <input type="text" id="zip" placeholder="Enter zip code here" required>
@@ -51,17 +51,18 @@
       <option value="de">Germany</option>
     </select>
     <div class="holder feel">
-      <input class="myInput" id="feelings" placeholder="Enter your feelings here">
+      <input class="myInput" id="feelings" maxlength="40" placeholder="Enter your feelings here">
     </div>
     <button id="generate" type="submit"> Generate </button>
     <div class="entry">
       <div class="title">Most Recent Entry</div>
       <div id="entryHolder">
-        <div id="temp"></div>
-        <div id="city__name"></div>
-        <div id="date"></div>
+        <div id="temp">14&deg;C</div>
+        <div id="city__name">new kdjlkj skroji owijre</div>
+        <div id="date">2022/8/29</div>
         <div id="content"></div>
       </div>
+
       <!-- start loading -->
       <div class="loading centering">
         <span></span>
