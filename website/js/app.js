@@ -52,10 +52,14 @@ const loading = document.querySelector(".loading");
 
 /* Function called by event listener */
 async function generate() {
+  entry.style.cssText = "display: block;";
+  loading.style.cssText = "display: flex;";
   const zipCode = document.getElementById("zip").value;
   if (zipCode === "") {
     wrongZip.style.cssText = "display : none;";
     noZip.style.cssText = "display: block;";
+    loading.style.cssText = "display: none;";
+    entry.style.cssText = "display: none;";
     return;
   }
   const country = document.getElementById("country").value;
@@ -75,13 +79,13 @@ async function generate() {
       console.log(e);
       noZip.style.cssText = "display: none;";
       wrongZip.style.cssText = "display : block;";
+      loading.style.cssText = "display: none;";
+      entry.style.cssText = "display: none;";
     });
 }
 
 // update UI dynamically
 const updateUI = async () => {
-  entry.style.cssText = "display: block;";
-  loading.style.cssText = "display: flex;";
   noZip.style.cssText = "display: none;";
   wrongZip.style.cssText = "display : none;";
   const res = await fetch("/all");
@@ -93,7 +97,6 @@ const updateUI = async () => {
       Number(data.temp)
     )} &deg;C`;
     document.getElementById("content").innerHTML = `${data.feelings}`;
-
     loading.style.cssText = "display: none;";
     document.querySelector("#entryHolder").style.cssText = "display: block;";
   } catch (error) {
