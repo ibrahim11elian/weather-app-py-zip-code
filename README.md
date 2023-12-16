@@ -10,7 +10,7 @@ This project requires you to create an asynchronous web app that uses Web API an
 
 you can try it from here:
 
-- Live Site URL:(https://weather-by-zip-code.herokuapp.com)
+- Live Site URL: [Click here](https://weather-journal-app-x9ih.onrender.com/)
 
 ### Built with
 
